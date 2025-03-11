@@ -1,0 +1,56 @@
+SSH
+ssh-keygen -t ed25519 -C "neetchic@gmail.com"
+cat ~/.ssh/id_ed25519.pub ----> paste into github.com/settings/keys
+
+-----------------------------------------------------------------------
+
+GIT
+git init
+git config --global user.email "neetchic@gmail.com"
+git config --global user.name "Nyman N."
+git checkout -b main
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:neetchic/homelab.git
+git push -u origin main
+
+-----------------------------------------------------------------------
+
+DOCKER
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-get-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb-release -cs) stable"
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+
+-----------------------------------------------------------------------
+
+K3s
+curl -fsSL https://get.k3s.io | sh -
+sudo systemctl status k3s
+
+-----------------------------------------------------------------------
+
+KUBECTL
+mkdir -p ~/.kube
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo chown $(id -u):$(id -g) ~/.kube/config
+chmod 600 ~/.kube/config
+
+-----------------------------------------------------------------------
+
+K9s
+curl -fsSL https://webinstall.dev/k9s | bash
+
+-----------------------------------------------------------------------
+
+KUBECTX
+sudo apt update
+sudo apt install -y git
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+
+
