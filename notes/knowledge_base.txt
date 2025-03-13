@@ -1,0 +1,11 @@
+"reaching self-hosted app from a different machine" 
+SSH Port Forwarding: provides access to the exposed port of your distant machine.
+ssh -L 9000:localhost:9000 username@distant-machine-ip
+Then on your desktop, open Chrome and navigate to http://localhost:9000
+
+
+
+"bind address already in use"
+Inspect which service is running on port 9000
+sudo lsof -i :9000
+kill -9 <PID>

@@ -2,12 +2,6 @@ SSH
 ssh-keygen -t ed25519 -C "neetchic@gmail.com"
 cat ~/.ssh/id_ed25519.pub ----> paste into github.com/settings/keys
 
-
-SSH Port Forwarding: provides access to the exposed port of your distant machine.
-ssh -L 9000:localhost:9000 username@distant-machine-ip
-Then on your desktop, open Chrome and navigate to http://localhost:9000
-
-
 -----------------------------------------------------------------------
 
 GIT
