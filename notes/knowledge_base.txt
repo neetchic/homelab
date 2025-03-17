@@ -9,3 +9,14 @@ Then on your desktop, open Chrome and navigate to http://localhost:9000
 Inspect which service is running on port 9000
 sudo lsof -i :9000
 kill -9 <PID>
+
+
+"search and replace words in vim"
+%s/wordtoreplace/wordtoinsert/g
+
+
+"rdctl command isn't available in k3s and I want to check the Container Network Interface"
+ls -la /var/lib/rancher/k3s/agent/etc/cni/net.d/
+cat /var/lib/rancher/k3s/agent/etc/cni/net.d/10-flannel.conflist
+
+
